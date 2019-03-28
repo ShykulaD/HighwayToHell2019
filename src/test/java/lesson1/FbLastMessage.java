@@ -1,11 +1,10 @@
 package lesson1;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,9 +24,13 @@ public class FbLastMessage {
         driver.findElement(By.cssSelector("[name='email']")).sendKeys("pj.pdffiller@gmail.com");
         driver.findElement(By.cssSelector("[name='pass']")).clear();
         driver.findElement(By.cssSelector("[name='pass']")).sendKeys("Te12345st");
-        driver.findElement(By.id("u_0_2")).click(); // click Submit button
+        driver.findElement(By.id("u_0_2")).click(); // click Submit button on Login
         driver.findElement(By.name("mercurymessages")).click();
-        driver.findElement(By.className("clearfix")).click();
+        driver.findElement(By.className("_4djt")).click();
+        WebElement new1 = driver.findElement(By.className("_3058 _ui9 _hh7 _6ybn _s1- _52mr _3oh-"));
+        System.out.println(new1);
+        // driver.findElement(By.cssSelector("div.clearfix > li:first-child")).click();
+        // driver.findElement(By.className("clearfix")).click(); //div clearfix div:first-child
         Thread.sleep(5000);
         driver.quit();
     }
