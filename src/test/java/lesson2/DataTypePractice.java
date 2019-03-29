@@ -1,7 +1,7 @@
 package lesson2;
 
 public class DataTypePractice {
-    public static int i = 5;
+    public static int i = 33434;
     public static float fNumber = 123.2f;
 
 
@@ -12,6 +12,10 @@ public class DataTypePractice {
         char c2 = (char) fNumber;
 
         System.out.println(c2);
+
+        int i2 = c2;
+
+        System.out.println(i2);
 
     }
 }
