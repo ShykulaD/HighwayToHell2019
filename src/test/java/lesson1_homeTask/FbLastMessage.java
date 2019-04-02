@@ -1,4 +1,4 @@
-package lesson1;
+package lesson1_homeTask;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,11 +27,9 @@ public class FbLastMessage {
         driver.findElement(By.id("u_0_2")).click(); // click Submit button on Login
         driver.findElement(By.name("mercurymessages")).click();
         driver.findElement(By.className("_4djt")).click();
-        WebElement new1 = driver.findElement(By.className("_3058 _ui9 _hh7 _6ybn _s1- _52mr _3oh-"));
-        System.out.println(new1);
+        Thread.sleep(5000);
         // driver.findElement(By.cssSelector("div.clearfix > li:first-child")).click();
         // driver.findElement(By.className("clearfix")).click(); //div clearfix div:first-child
-        Thread.sleep(5000);
         driver.quit();
     }
 
