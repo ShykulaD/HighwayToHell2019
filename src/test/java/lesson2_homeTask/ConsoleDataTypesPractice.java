@@ -25,7 +25,5 @@ public class ConsoleDataTypesPractice {
 
         System.out.println("Your char symbol is: " + c2);
 
-
-
     }
 }
