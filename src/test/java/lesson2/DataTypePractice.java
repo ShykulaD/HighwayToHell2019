@@ -1,7 +1,7 @@
 package lesson2;
 
 public class DataTypePractice {
-    public static int i = 33434;
+    public static int i = 33;
     public static float fNumber = 123.2f;
 
 
