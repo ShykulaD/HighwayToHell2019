@@ -6,21 +6,26 @@ import java.util.Scanner;
 public class ConsoleDataTypesPractice {
 
     public static void main(String[] args) {
-        // Программа char -> int
-        System.out.println("Input any numbers ");
-        Scanner scan = new Scanner(System.in);
-        char c = scan.findInLine(".").charAt(0);
+        // char -> int program
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the symbol: ");
 
+        char c = sc.next().charAt(0);
         int i1 = c;
+
         System.out.println(i1);
 
+        // int -> char program
 
-        // Программа int -> char
-        Scanner scan2 = new Scanner(System.in);
-        System.out.print("Input any integer ");
-        int i2 = scan2.nextInt();
-        char c2 = (char) i2;
+        Scanner reader = new Scanner(System.in);
+        System.out.print("Enter a number: ");
 
-        System.out.println(c2);
+        int number = reader.nextInt();
+        char c2 = (char) number;
+
+        System.out.println("Your char symbol is: " + c2);
+
+
+
     }
 }

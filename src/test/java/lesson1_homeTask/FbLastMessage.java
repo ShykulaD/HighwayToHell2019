@@ -7,9 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FbLastMessage {
+
+
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -28,8 +31,9 @@ public class FbLastMessage {
         driver.findElement(By.name("mercurymessages")).click();
         driver.findElement(By.className("_4djt")).click();
         Thread.sleep(5000);
-        // driver.findElement(By.cssSelector("div.clearfix > li:first-child")).click();
-        // driver.findElement(By.className("clearfix")).click(); //div clearfix div:first-child
+
+
+
         driver.quit();
     }
 
