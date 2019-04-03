@@ -30,9 +30,9 @@ public class FbLastMessage {
         driver.findElement(By.id("u_0_2")).click(); // click Submit button on Login
         driver.findElement(By.name("mercurymessages")).click();
         driver.findElement(By.className("_4djt")).click();
-        Thread.sleep(5000);
-
-
+        Thread.sleep(3000);
+        WebElement element = driver.findElements(By.xpath("//*[@id='js_57']"));
+        System.out.println(element.getText());
 
         driver.quit();
     }
