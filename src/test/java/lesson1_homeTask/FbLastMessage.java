@@ -12,8 +12,6 @@ import java.util.Map;
 
 public class FbLastMessage {
 
-
-
     public static void main(String[] args) throws InterruptedException {
 
         Map<String, Object> prefs = new HashMap<String, Object>();
@@ -24,15 +22,16 @@ public class FbLastMessage {
         driver.manage().window().maximize();
         driver.get("https://www.facebook.com/");
         driver.findElement(By.cssSelector("[name='email']")).clear();
-        driver.findElement(By.cssSelector("[name='email']")).sendKeys("pj.pdffiller@gmail.com");
+        driver.findElement(By.cssSelector("[name='email']")).sendKeys( "pj.pdffiller@gmail.com");
         driver.findElement(By.cssSelector("[name='pass']")).clear();
         driver.findElement(By.cssSelector("[name='pass']")).sendKeys("Te12345st");
         driver.findElement(By.id("u_0_2")).click(); // click Submit button on Login
         driver.findElement(By.name("mercurymessages")).click();
-        driver.findElement(By.className("_4djt")).click();
         Thread.sleep(3000);
-      //  WebElement element = driver.findElements(By.xpath("//*[@id='js_57']"));
-    //    System.out.println(element.getText());
+        WebElement messagesList = driver.findElement(By.xpath("//*[@class='_1ijj']//span//span"));
+        List<WebElement> rows = messagesList.findElements(By.xpath("//*[@class='_1ijj']//span//span"));
+        System.out.println(rows.get(0).getText());
+
 
         driver.quit();
     }
