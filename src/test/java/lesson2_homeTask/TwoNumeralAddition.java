@@ -9,6 +9,6 @@ public class TwoNumeralAddition {
         int b = n % 10; // 2
         int c = ( n / 10 ) % 10; //2.2, but for int it's 2
         int resultN = b + c;
-        System.out.println("Sum of digits " +n +" is "+ resultN);
+        System.out.println("Sum of two digits " +n +" is "+ resultN);
     }
 }

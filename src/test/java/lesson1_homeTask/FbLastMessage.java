@@ -31,8 +31,8 @@ public class FbLastMessage {
         driver.findElement(By.name("mercurymessages")).click();
         driver.findElement(By.className("_4djt")).click();
         Thread.sleep(3000);
-        WebElement element = driver.findElements(By.xpath("//*[@id='js_57']"));
-        System.out.println(element.getText());
+      //  WebElement element = driver.findElements(By.xpath("//*[@id='js_57']"));
+    //    System.out.println(element.getText());
 
         driver.quit();
     }
