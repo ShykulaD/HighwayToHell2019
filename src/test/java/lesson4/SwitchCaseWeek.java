@@ -2,7 +2,7 @@ package lesson4;
 
 import java.util.Scanner;
 
-public class SwitchWeek {
+public class SwitchCaseWeek {
     public static void main(String[] args) {
         String Monday = "Monday";
         String Tuesday = "Tuesday";
@@ -27,7 +27,7 @@ public class SwitchWeek {
             case 5:
                 System.out.println(Friday); break;
             case 6:
-                System.out.println(Tuesday); break;
+                System.out.println(Sat); break;
             case 7:
                 System.out.println(Sunday); break;
             default:

@@ -32,7 +32,6 @@ public class FbLastMessage {
         List<WebElement> rows = messagesList.findElements(By.xpath("//*[@class='_1ijj']//span//span"));
         System.out.println(rows.get(0).getText());
 
-
         driver.quit();
     }
 
