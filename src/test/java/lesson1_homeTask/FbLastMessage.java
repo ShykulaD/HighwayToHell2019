@@ -29,8 +29,7 @@ public class FbLastMessage {
         driver.findElement(By.name("mercurymessages")).click();
         Thread.sleep(3000);
         WebElement messagesList = driver.findElement(By.xpath("//*[@class='_1ijj']//span//span"));
-        List<WebElement> rows = messagesList.findElements(By.xpath("//*[@class='_1ijj']//span//span"));
-        System.out.println(rows.get(0).getText());
+        System.out.println(messagesList.getText());
 
         driver.quit();
     }
