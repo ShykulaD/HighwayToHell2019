@@ -1,4 +1,4 @@
-package lesson4;
+package lesson4_homeTask_and_work;
 
 public class SmallestNumber {
     public static void main(String[] args) {
