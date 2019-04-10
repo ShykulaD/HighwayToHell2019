@@ -12,9 +12,7 @@ import java.util.List;
 
 public class ImdbExample {
 
-    public class SeleniumPractice {
-
-        public WebDriver driver;
+        private WebDriver driver;
 
         @BeforeTest
         public void setUp() {
@@ -23,7 +21,6 @@ public class ImdbExample {
         }
 
         @Test
-
         public void myTest() {
             List<WebElement> elements = driver.findElements(By.xpath("//*[@class='titleColumn']//a"));
             for (WebElement element : elements) {
@@ -36,6 +33,6 @@ public class ImdbExample {
             driver.quit();
         }
     }
-}
+
 
 

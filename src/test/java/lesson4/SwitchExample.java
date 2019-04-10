@@ -1,4 +1,4 @@
-package lesson4_homeTask_and_work;
+package lesson4;
 
 public class SwitchExample {
     public static void main(String[] args) {

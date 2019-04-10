@@ -1,17 +1,38 @@
 package lesson5_homeTask;
 
-import lesson5.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class LiniaKinoShowtimes extends BaseTest {
+public class LiniaKinoShowtimes {
+
+    private WebDriver driver;
+
+    @BeforeTest
+    public void setUp() {
+        driver = new ChromeDriver();
+        driver.get("http://liniakino.com/showtimes/aladdin/");
+    }
+
     @Test
-    driver.get("http://liniakino.com/showtimes/aladdin/");
-    List<WebElement> row = driver.findElements(By.xpath("//*[@class='showtime-movie']//h1//a"));
-    System.out.println(row.getText());
+    public void myTest(){
+        List<WebElement> elements = driver.findElements(By.xpath("//*[@class='showtime-movie']/h1/a"));
+        for (WebElement element : elements) {
+            System.out.println(element.getText());
+        }
+    }
 
-
+    @AfterTest
+    public void tearDown() {
+        driver.quit();
+    }
 }
+
+
+
