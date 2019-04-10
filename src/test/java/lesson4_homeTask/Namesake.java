@@ -9,5 +9,6 @@ public class Namesake {
             System.out.println("Oh, you are nameSake's");
         } else
             System.out.println("Two names are different");
+
     }
 }

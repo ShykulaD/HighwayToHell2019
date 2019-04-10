@@ -18,6 +18,6 @@ public class SmallestNumber {
         } else {
             System.out.println("i4");
         }
-    }
 
+    }
 }

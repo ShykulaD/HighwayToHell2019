@@ -1,7 +1,6 @@
 package lesson4_homeTask;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class TheLowestAndTheLargestNumber {
@@ -40,6 +39,7 @@ public class TheLowestAndTheLargestNumber {
 
         System.out.println("Max number in the list is " + maxNumber);
         System.out.println("Min number in the list is " + minNumber);
+
         }
     }
 
