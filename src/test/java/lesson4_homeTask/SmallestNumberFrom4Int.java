@@ -1,6 +1,6 @@
 package lesson4_homeTask;
 
-public class SmallestNumber {
+public class SmallestNumberFrom4Int {
     public static void main(String[] args) {
         int i1 = 22;
         int i2 = 3;

@@ -3,7 +3,7 @@ package lesson4_homeTask;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TheLowestAndTheLargestNumber {
+public class TheLowestAndTheLargestNumberFrom5int {
 
     public static void main(String[] args) {
         int i1 = 22;

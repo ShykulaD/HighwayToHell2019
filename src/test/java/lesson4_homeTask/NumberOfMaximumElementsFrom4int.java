@@ -3,7 +3,7 @@ package lesson4_homeTask;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberOfMaximumElements {
+public class NumberOfMaximumElementsFrom4int {
         public static void main(String[] args) {
                 int i1 = 22;
                 int i2 = 3;
