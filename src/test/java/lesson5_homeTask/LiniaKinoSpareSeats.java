@@ -13,10 +13,10 @@ public class LiniaKinoSpareSeats extends BaseWrapper {
         driver.findElement(By.xpath("//*[@class='showtime-time']//li[2]/a")).click();
         Thread.sleep(5000);
         WebElement iframeElem = driver.findElement(By.cssSelector("iframe"));
-        driver.switchTo().frame(iframeElem); // Переключится на frame
+        driver.switchTo().frame(iframeElem); // Switch to iframe
         driver.findElement(By.cssSelector("#hseat-24701619")).click();
         Thread.sleep(5000);
-        //driver.switchTo().defaultContent(); // Вернуться из фрейма на "главную страницу"
+        //driver.switchTo().defaultContent(); // Switch back from iframe
     }
 
 }
