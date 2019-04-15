@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class Waiting extends BaseTest {
+public class Waiting extends BaseTestExample {
     @Test
     public void he() {
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);

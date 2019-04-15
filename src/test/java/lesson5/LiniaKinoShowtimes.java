@@ -1,4 +1,4 @@
-package lesson5_homeTask;
+package lesson5;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
