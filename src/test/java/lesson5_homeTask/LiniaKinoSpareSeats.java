@@ -26,7 +26,8 @@ int occupiedSeats = 0;
 
         List<WebElement> resultList = driver.findElements(By.cssSelector("div[id^='hseat-']"));
         for (WebElement resultItem : resultList){
-            if (resultItem.getAttribute("seat seat-occupied")) {
+            String className = resultItem.getAttribute("seat seat-occupied");
+            if (className == "seat seat-occupied") {
                 ++occupiedSeats;
             }
         }
