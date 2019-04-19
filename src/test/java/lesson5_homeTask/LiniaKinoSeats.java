@@ -7,7 +7,7 @@ import wrappers.BaseWrapper;
 
 import java.util.List;
 
-public class LiniaKinoSpareSeats extends BaseWrapper {
+public class LiniaKinoSeats extends BaseWrapper {
 
 private int freeSeats = 0;
 private int occupiedSeats = 0;

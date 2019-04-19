@@ -1,3 +1,8 @@
 # HighwayToHell2019
 
-*Qa automation course* (in progress)
+*Qa automation school 2019* (in progress)
+
+_lesson packages for training_
+
+_lesson/homeTask packages for training_
+
