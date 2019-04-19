@@ -15,13 +15,15 @@ private int allSeats = 0;
 private int reservedSeats = 0;
 
     @Test
-    public void myTest() throws InterruptedException {
+    public void liniaKino() throws InterruptedException {
 
         driver.get("http://liniakino.com/showtimes/aladdin/");
+
         if (driver.findElement(By.xpath("//*[@id='closeButton']/b")).isDisplayed())
          {
              driver.findElement(By.xpath("//*[@id='closeButton']/b")).click();
          }
+
         driver.findElement(By.xpath("//*[@class='showtime-time']//li[2]/a")).click();
         Thread.sleep(2000);
         WebElement iframeElem = driver.findElement(By.cssSelector("iframe"));
