@@ -23,12 +23,12 @@ public class TheShawshankRedemption extends BaseWrapper {
 
         // Finding and printing Movie Name
         driver.get("https://www.imdb.com/title/tt0111161/");
-        WebElement movieName = driver.findElement(By.xpath("//*[@class='title_wrapper']/h1"));
-        System.out.println("Movie name is " + movieName.getText());
+        String movieName = driver.findElement(By.xpath("//*[@class='title_wrapper']/h1")).getText();
+        System.out.println("Movie name is " + movieName);
 
         // Finding and printing Release Date
-        WebElement releaseDate = driver.findElement(By.cssSelector(".subtext > a:last-child"));
-        System.out.println("Release date is " + releaseDate.getText());
+        String releaseDate = driver.findElement(By.cssSelector(".subtext > a:last-child")).getText();
+        System.out.println("Release date is " + releaseDate);
 
         // Finding and printing Release Date
        // WebElement releaseDate = driver.findElement(By.cssSelector(".subtext > a:last-child"));
