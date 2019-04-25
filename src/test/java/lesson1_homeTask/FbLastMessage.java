@@ -1,7 +1,10 @@
 package lesson1_homeTask;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapperForFaceBook;
 
@@ -16,8 +19,18 @@ public class FbLastMessage extends BaseWrapperForFaceBook {
             driver.findElement(By.cssSelector("[name='email']")).sendKeys("pj.pdffiller@gmail.com");
             driver.findElement(By.cssSelector("[name='pass']")).clear();
             driver.findElement(By.cssSelector("[name='pass']")).sendKeys("Te12345st");
+
+            //Explicit wait
+            WebDriverWait waitForLogin = new WebDriverWait(driver, 1);
+            waitForLogin.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#u_0_2")));
+
             driver.findElement(By.cssSelector("#u_0_2")).click(); // click Submit button on Login
             driver.findElement(By.name("mercurymessages")).click();
+
+            //Explicit wait
+            WebDriverWait waitForMessagePopUp = new WebDriverWait(driver, 22);
+            waitForMessagePopUp.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='_1ijj']//span//span")));
+
             WebElement messagesList = driver.findElement(By.xpath("//*[@class='_1ijj']//span//span"));
             System.out.println(messagesList.getText());
         } catch (Exception e) {
