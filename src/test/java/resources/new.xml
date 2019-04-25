@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<suite name="LiniaKinoSeats" parallel="false">
-    <test name="LiniaKinoSeats">
-        <classes>
-            <class name="lesson5_homeTask.LiniaKinoSeats">
-            </class>
-        </classes>
-    </test>
-</suite>

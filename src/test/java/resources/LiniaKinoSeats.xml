@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Suite" parallel="false">
+
+    <test name="Linia Kino">
+        <classes>
+            <class name="lesson5_homeTask.LiniaKinoSeats">
+                <methods>
+                    <include name="liniaKino"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Facebook Last Message">
+        <classes>
+            <class name="lesson1_homeTask.FbLastMessage">
+                <methods>
+                    <include name="FbLastUserMessage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
