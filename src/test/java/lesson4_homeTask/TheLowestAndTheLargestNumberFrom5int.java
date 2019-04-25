@@ -24,14 +24,14 @@ public class TheLowestAndTheLargestNumberFrom5int {
         int intSize = intList.size();
 
         // With for loop find the max number in array
-        for (int i = 0; i < intSize ; i++) {
+        for (int i = 0; i < intSize; i++) {
             if (intList.get(i) > maxNumber) {
                 maxNumber = intList.get(i);
             }
         }
 
         // With for loop find the min number in array
-        for (int k = 0; k < intSize ; k++) {
+        for (int k = 0; k < intSize; k++) {
             if (minNumber > intList.get(k)) {
                 minNumber = intList.get(k);
             }
@@ -40,6 +40,6 @@ public class TheLowestAndTheLargestNumberFrom5int {
         System.out.println("Max number in the list is " + maxNumber);
         System.out.println("Min number in the list is " + minNumber);
 
-        }
     }
+}
 

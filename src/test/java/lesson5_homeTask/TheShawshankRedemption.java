@@ -31,7 +31,7 @@ public class TheShawshankRedemption extends BaseWrapper {
         System.out.println("Release date is " + releaseDate);
 
         // Finding and printing Release Date
-       // WebElement releaseDate = driver.findElement(By.cssSelector(".subtext > a:last-child"));
-       // System.out.println("is duration movie in Minutes " + releaseDate.getText());
+        // WebElement releaseDate = driver.findElement(By.cssSelector(".subtext > a:last-child"));
+        // System.out.println("is duration movie in Minutes " + releaseDate.getText());
     }
 }

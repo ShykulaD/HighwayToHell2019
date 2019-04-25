@@ -9,11 +9,9 @@ public class SmallestNumberFrom4Int {
 
         if (i1 < i2 && i1 < i3 && i1 < i4) {
             System.out.println("i1");
-        }
-        else if (i2 < i1 && i2 < i3 && i2 < i4) {
+        } else if (i2 < i1 && i2 < i3 && i2 < i4) {
             System.out.println("i2");
-        }
-        else if (i3 < i1 && i3 < i2 && i3 < i4) {
+        } else if (i3 < i1 && i3 < i2 && i3 < i4) {
             System.out.println("i3");
         } else {
             System.out.println("i4");

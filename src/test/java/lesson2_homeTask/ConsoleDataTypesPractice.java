@@ -1,7 +1,7 @@
 package lesson2_homeTask;
 
 
-import java.util.Scanner;
+        import java.util.Scanner;
 
 public class ConsoleDataTypesPractice {
 

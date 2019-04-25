@@ -9,7 +9,7 @@ public class ThreeNumeralAddition {
         int integerForSecondNumber = n / 10; // 24
         int secondNumber = integerForSecondNumber % 10; // 4
         int finalNumber = firstNumber + secondNumber + lastNumber; //
-        System.out.println("Sum of three digits " +n +" is "+ finalNumber);
+        System.out.println("Sum of three digits " + n + " is " + finalNumber);
     }
 
 }
