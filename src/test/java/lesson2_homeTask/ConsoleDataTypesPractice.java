@@ -1,7 +1,19 @@
 package lesson2_homeTask;
 
 
-        import java.util.Scanner;
+import java.util.Scanner;
+
+/*
+1. Программа char -> int
+
+Считывает из консоли символ который вы вводите вручную (в консоль).
+Переобразовывает символ в int
+Выводит числовое значение символа
+
+2. Программа int -> char
+
+Тоже самое только int -> char
+*/
 
 public class ConsoleDataTypesPractice {
 

@@ -1,5 +1,13 @@
 package lesson2_homeTask;
 
+/*
+Написать класс в котором будут примеры приведения типов:
+
+int->char
+float->char
+float->char->int
+*/
+
 public class DataTypePractice {
     public static int i = 33;
     public static float fNumber = 123.2f;

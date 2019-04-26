@@ -5,6 +5,25 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapper;
 
+
+/*
+Написать программу которая выведет на экран информацию о фильме.
+Ссылка на страницу фильма: https://www.imdb.com/title/tt0111161/
+
+1. Название фильма
+2. Дата выхода
+3. Продолжительность фильма в минутах. Продолжительность фильма в секундах.
+4. Рейтинг фильма
+5. Жанр
+6. Ссылку на трейлер фильма
+7. Ссылку на постер фильма
+8. Директора фильма
+9. 5 Актеров фильма
+10. Рейтинг Metascore
+11. Кол-во ревью (отдельно пользовательских, отдельно критиков, сумму пользовательских и критиков)
+12. Названия 3х "похожих" фильмов
+*/
+
 public class TheShawshankRedemption extends BaseWrapper {
 
     private String movieDuriationInMinutes;
