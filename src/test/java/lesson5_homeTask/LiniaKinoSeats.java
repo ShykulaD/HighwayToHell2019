@@ -77,5 +77,3 @@ public class LiniaKinoSeats extends BaseWrapper {
         driver.switchTo().defaultContent(); // Switch back from iframe
     }
 }
-
-

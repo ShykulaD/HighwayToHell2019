@@ -1,7 +1,9 @@
 package lesson4_homeTask;
 
 public class Namesakes {
+
     public static void main(String[] args) {
+
         String person1 = "Denys";
         String person2 = "Denys";
 

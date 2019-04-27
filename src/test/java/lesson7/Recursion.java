@@ -1,6 +1,7 @@
 package lesson7;
 
 public class Recursion {
+
     public int fact(int n) {
         int result;
         if (n == 1)

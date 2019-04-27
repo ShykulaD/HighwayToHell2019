@@ -6,6 +6,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 public class BaseTestExample {
+
     public WebDriver driver;
 
     @BeforeTest

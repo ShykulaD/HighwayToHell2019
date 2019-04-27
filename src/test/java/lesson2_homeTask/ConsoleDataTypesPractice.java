@@ -1,6 +1,5 @@
 package lesson2_homeTask;
 
-
 import java.util.Scanner;
 
 /*

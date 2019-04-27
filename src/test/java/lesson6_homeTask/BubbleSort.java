@@ -1,7 +1,9 @@
 package lesson6_homeTask;
 
 public class BubbleSort {
+
     public static void main(String[] args) {
+
         boolean swapFlag = true;
         int tempInt;
         int [] arr = {1,33,44,2,455,99999999,333,4555,666,44,555,888899,9999,88,777,7777,444,232};

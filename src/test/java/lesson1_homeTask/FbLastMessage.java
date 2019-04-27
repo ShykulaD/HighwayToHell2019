@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapperForFaceBook;
 
-
 /*
 1. Открыть браузер
 2. Открыть https://www.facebook.com/

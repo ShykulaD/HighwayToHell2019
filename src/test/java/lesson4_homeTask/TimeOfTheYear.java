@@ -3,6 +3,7 @@ package lesson4_homeTask;
 import java.util.Scanner;
 
 public class TimeOfTheYear {
+
     public static void main(String[] args) {
         String winter = "Winter";
         String spring = "Spring";

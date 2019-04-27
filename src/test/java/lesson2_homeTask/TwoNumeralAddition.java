@@ -2,7 +2,6 @@ package lesson2_homeTask;
 
 public class TwoNumeralAddition {
 
-
     public static void main(String[] args) {
         int n = 22; // natural number
 

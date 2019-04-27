@@ -1,7 +1,9 @@
 package lesson4_homeTask;
 
 public class SmallestNumberFrom4Int {
+
     public static void main(String[] args) {
+
         int i1 = 22;
         int i2 = 3;
         int i3 = 34;
