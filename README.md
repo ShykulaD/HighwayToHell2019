@@ -2,7 +2,7 @@
 
 *Qa automation school 2019* (in progress)
 
-_lesson packages for training_
+_lesson packages for training on Lections_
 
-_lesson/homeTask packages for training_
+_lesson/homeTask packages for homeTasks_
 
