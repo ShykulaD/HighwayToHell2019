@@ -9,9 +9,9 @@ import wrappers.BaseWrapper;
 Написать программу которая выведет на экран информацию о фильме.
 Ссылка на страницу фильма: https://www.imdb.com/title/tt0111161/
 
-1. Название фильма
-2. Дата выхода
-3. Продолжительность фильма в минутах. Продолжительность фильма в секундах.
+1. Название фильма - done
+2. Дата выхода - done
+3. Продолжительность фильма в минутах. Продолжительность фильма в секундах. - done
 4. Рейтинг фильма
 5. Жанр
 6. Ссылку на трейлер фильма
@@ -60,6 +60,11 @@ public class TheShawshankRedemption extends BaseWrapper {
         int movieDuriationInMinutes = Integer.parseInt(movieDurationInMinutes); // String min to int min
 
         int totalMovieDurationInMinuytes = movieHoursToMinutes + movieDuriationInMinutes; // Total movie duration in Min
-        System.out.println("Movie duration in min is  " + totalMovieDurationInMinuytes);
+        long secondsMovie = java.util.concurrent.TimeUnit.MINUTES.toSeconds(totalMovieDurationInMinuytes); // finding seconds from Movie numbers
+
+        //System.out.println("Movie duration in min is " + totalMovieDurationInMinuytes);
+        // System.out.println("Movie duration in sec is " + secondsMovie);
+
+        // Movie Rating
     }
 }
