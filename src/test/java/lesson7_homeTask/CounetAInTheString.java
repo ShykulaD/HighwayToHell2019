@@ -19,25 +19,26 @@ public class CounetAInTheString {
 
         List<Integer> myList = new ArrayList<Integer>();
         String stringWithA = "aasss,assdfaasdqweaaa,asdaaaas,adsasdasd,aaa,asdghnzzzzzza,zzzzxxxaaaa,zxvvxvxcvxcv,xcvxv.fsdfsdfeweqwejhsdf sf sdfs a a sdfsdf sdf";
-        String aString = "a";
+        // String aString = "a";
         char aChar = 'a';
         int aAmount = 0; // sum of "a" in String
-
-        ArrayList<String> ar = new ArrayList<String>();
 
         for (int i = 0; i < stringWithA.length(); i++) {
 
             if (stringWithA.charAt(i) == aChar) {
                 aAmount++;
+                myList.add(i);
             }
         }
 
-        for (int index = stringWithA.indexOf(aString);
+      /*  for (int index = stringWithA.indexOf(aString);
              index >= 0;
              index = stringWithA.indexOf(aString, index + 1)) {
             myList.add(index);
         }
-        System.out.println("a character is " + aAmount + " times in string");
+        */
+
+        System.out.println("'a' character is " + aAmount + " times in string");
         System.out.println("The positions of elements in String are " + myList);
 
     }
