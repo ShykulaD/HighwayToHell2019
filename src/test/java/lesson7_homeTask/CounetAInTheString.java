@@ -18,7 +18,8 @@ public class CounetAInTheString {
     public static void main(String[] args) {
 
         List<Integer> myList = new ArrayList<Integer>();
-        String stringWithA = "aasss,assdfaasdqweaaa,asdaaaas,adsasdasd,aaa,asdghnzzzzzza,zzzzxxxaaaa,zxvvxvxcvxcv,xcvxv.fsdfsdfeweqwejhsdf sf sdfs a a sdfsdf sdf";
+        String stringWithA = "aasss,assdfaasdqweaaa,asdaaaas,adsasdasd,aaa,asdghnzzzzzza,zzzzxxxaaaa,zxvvxv" +
+                "xcvxcv,xcvxv.fsdfsdfeweqwejhsdf sf sdfs a a sdfsdf sdfa";
         // String aString = "a";
         char aChar = 'a';
         int aAmount = 0; // sum of "a" in String
@@ -31,6 +32,7 @@ public class CounetAInTheString {
             }
         }
 
+      // second variant of solution
       /*  for (int index = stringWithA.indexOf(aString);
              index >= 0;
              index = stringWithA.indexOf(aString, index + 1)) {
