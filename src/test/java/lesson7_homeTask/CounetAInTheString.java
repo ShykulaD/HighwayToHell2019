@@ -9,29 +9,37 @@ package lesson7_homeTask;
 РЕЗУЛЬТАТ: Кол-во символов “a” - 2, индексы символа “a” в строке - [0, 4];
 */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CounetAInTheString {
 
 
     public static void main(String[] args) {
 
+        List<Integer> myList = new ArrayList<Integer>();
+        String stringWithA = "aasss,assdfaasdqweaaa,asdaaaas,adsasdasd,aaa,asdghnzzzzzza,zzzzxxxaaaa,zxvvxvxcvxcv,xcvxv.fsdfsdfeweqwejhsdf sf sdfs a a sdfsdf sdf";
+        String aString = "a";
+        char aChar = 'a';
         int aAmount = 0; // sum of "a" in String
 
-        String stringWithA = "azzza";
-        // char arr[] = stringWithA.toCharArray(); // convert the String object to array of char
+        ArrayList<String> ar = new ArrayList<String>();
 
         for (int i = 0; i < stringWithA.length(); i++) {
 
-            // stringWithA.indexOf(1);
-            char a2 = 'a';
-
-            if (stringWithA.charAt(i) == a2) {
+            if (stringWithA.charAt(i) == aChar) {
                 aAmount++;
             }
         }
 
-        System.out.println(aAmount);
+        for (int index = stringWithA.indexOf(aString);
+             index >= 0;
+             index = stringWithA.indexOf(aString, index + 1)) {
+            myList.add(index);
+        }
+        System.out.println("a character is " + aAmount + " times in string");
+        System.out.println("The positions of elements in String are " + myList);
 
     }
-
 
 }
