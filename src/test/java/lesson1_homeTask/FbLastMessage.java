@@ -20,27 +20,36 @@ import wrappers.BaseWrapperForFaceBook;
 
 public class FbLastMessage extends BaseWrapperForFaceBook {
 
+    private String pass = "Te12345st";
+    private String email = "pj.pdffiller@gmail.com";
+    private By emailInput = By.cssSelector("[name='email']");
+    private By passInput = By.cssSelector("[name='pass']");
+    private By loginBtn = By.cssSelector("#u_0_2");
+    private By messageBtn = By.xpath("//div[@*='uiToggle _4962 _1z4y _330i _4kgv']");
+    private By messages = By.xpath("//*[@class='_1ijj']//span//span");
+
+
     @Test
     public void FbLastUserMessage() {
 
         try {
-            driver.findElement(By.cssSelector("[name='email']")).clear();
-            driver.findElement(By.cssSelector("[name='email']")).sendKeys("pj.pdffiller@gmail.com");
-            driver.findElement(By.cssSelector("[name='pass']")).clear();
-            driver.findElement(By.cssSelector("[name='pass']")).sendKeys("Te12345st");
+            driver.findElement(emailInput).clear();
+            driver.findElement(emailInput).sendKeys(email);
+            driver.findElement(passInput).clear();
+            driver.findElement(passInput).sendKeys(pass);
 
             //Explicit wait
             WebDriverWait waitForLogin = new WebDriverWait(driver, 1);
-            waitForLogin.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#u_0_2")));
+            waitForLogin.until(ExpectedConditions.visibilityOfElementLocated(loginBtn));
 
-            driver.findElement(By.cssSelector("#u_0_2")).click(); // click Submit button on Login
-            driver.findElement(By.name("mercurymessages")).click();
+            driver.findElement(loginBtn).click(); // click Submit button on Login
+            driver.findElement(messageBtn).click();
 
             //Explicit wait
             WebDriverWait waitForMessagePopUp = new WebDriverWait(driver, 22);
-            waitForMessagePopUp.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='_1ijj']//span//span")));
+            waitForMessagePopUp.until(ExpectedConditions.visibilityOfElementLocated(messages));
 
-            WebElement messagesList = driver.findElement(By.xpath("//*[@class='_1ijj']//span//span"));
+            WebElement messagesList = driver.findElement(messages);
             System.out.println(messagesList.getText());
         } catch (Exception e) {
             e.printStackTrace();
