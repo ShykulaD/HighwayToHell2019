@@ -1,7 +1,6 @@
 package lesson1_homeTask;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -39,18 +38,18 @@ public class FbLastMessage extends BaseWrapperForFaceBook {
             driver.findElement(passInput).sendKeys(pass);
 
             //Explicit wait
-            WebDriverWait waitForLogin = new WebDriverWait(driver, 1);
+            WebDriverWait waitForLogin = new WebDriverWait(driver, 5);
             waitForLogin.until(ExpectedConditions.visibilityOfElementLocated(loginBtn));
 
             driver.findElement(loginBtn).click(); // click Submit button on Login
             driver.findElement(messageBtn).click();
 
             //Explicit wait
-            WebDriverWait waitForMessagePopUp = new WebDriverWait(driver, 22);
+            WebDriverWait waitForMessagePopUp = new WebDriverWait(driver, 5);
             waitForMessagePopUp.until(ExpectedConditions.visibilityOfElementLocated(messages));
 
-            WebElement messagesList = driver.findElement(messages);
-            System.out.println(messagesList.getText());
+            String messagesList = driver.findElement(messages).getText();
+            System.out.println(messagesList);
         } catch (Exception e) {
             e.printStackTrace();
         }
