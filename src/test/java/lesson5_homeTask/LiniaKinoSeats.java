@@ -7,18 +7,14 @@ import wrappers.BaseWrapper;
 
 import java.util.List;
 
-
 /*
 Написать программу которая будет отображать кол-во мест в зале кинотеатра:
-
 Кол-во мест в зале
 Кол-во мест занятых
 Кол-во мест свободных
 % Занятых мест от “всего мест в зале”
 % Свободных мест от “всего мест в зале”
-
 Что делает программа:
-
 Переходим на http://liniakino.com/showtimes/aladdin/
 Выбираем фильм “Дамбо” - ближайший сеанс.
 Открываем схему зала
@@ -43,7 +39,7 @@ public class LiniaKinoSeats extends BaseWrapper {
         }
 
         driver.findElement(By.xpath("//*[@class='showtime-time']//li[2]/a")).click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         WebElement iframeElem = driver.findElement(By.cssSelector("iframe"));
         driver.switchTo().frame(iframeElem); // Switch to iframe
 
@@ -60,7 +56,7 @@ public class LiniaKinoSeats extends BaseWrapper {
         }
 
         // For each for finding Reserved seats
-        List<WebElement> reservedSeatsList = driver.findElements(By.cssSelector("#hall-scheme-container .seat seat-reserved"));
+        List<WebElement> reservedSeatsList = driver.findElements(By.cssSelector("#hall-scheme .seat-reserved"));
         for (WebElement reserveSeat : reservedSeatsList) {
             ++reservedSeats;
         }
