@@ -32,7 +32,7 @@ public class CounetAInTheString {
             }
         }
 
-      // second variant of solution
+        // second variant of solution
       /*  for (int index = stringWithA.indexOf(aString);
              index >= 0;
              index = stringWithA.indexOf(aString, index + 1)) {
