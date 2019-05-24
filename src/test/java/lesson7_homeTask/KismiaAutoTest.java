@@ -93,7 +93,6 @@ public class KismiaAutoTest extends BaseWrapper {
         driver.findElement(buttonForward).click(); //
         driver.findElement(saveForLater).click(); // Photo upload later
 
-
     }
 
 }
