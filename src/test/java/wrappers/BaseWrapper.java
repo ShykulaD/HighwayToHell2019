@@ -2,6 +2,7 @@ package wrappers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -11,7 +12,9 @@ public class BaseWrapper {
 
     @BeforeTest
     public void setUp() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-geolocation");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
 
