@@ -8,7 +8,7 @@ public class SringIsImmutable {
         myString.concat(" SPARROW"); // "JACK" + " SPARROW"
         System.out.println(myString); // JACK
 
-        //метод concat возвращает новую строку - ОН НЕ ИЗМЕНЯЕТ ОБЪЕКТ
+        // метод concat возвращает новую строку - ОН НЕ ИЗМЕНЯЕТ ОБЪЕКТ
 
         myString = myString.concat(" SPARROW"); // myString = "JACK" + " SPARROW"
         System.out.println(myString); // JACK SPARROW
