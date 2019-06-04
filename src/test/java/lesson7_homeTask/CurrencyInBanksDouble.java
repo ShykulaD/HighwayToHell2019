@@ -1,24 +1,24 @@
 package lesson7_homeTask;
 
-        import org.openqa.selenium.By;
-        import org.testng.annotations.Test;
-        import wrappers.BaseWrapper;
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+import wrappers.BaseWrapper;
 
 public class CurrencyInBanksDouble extends BaseWrapper {
 
-    public double privatUsdBuy;
-    public double privatUsdSell;
+    private double privatUsdBuy;
+    private double privatUsdSell;
 
-    public double ukrSibUsdBuy;
-    public double ukrSibUsdSell;
+    private double ukrSibUsdBuy;
+    private double ukrSibUsdSell;
 
-    public double universalUsdBuy;
-    public double universalUsdSell;
+    private double universalUsdBuy;
+    private double universalUsdSell;
 
-    public double oschadUsdBuy;
-    public double oschadUsdSell;
+    private double oschadUsdBuy;
+    private double oschadUsdSell;
 
-    public double unbuUsdBuy;
+    private double unbuUsdBuy;
 
     private By privatUsd = By.xpath("//*[@class='section']/div[2]");
 
@@ -31,8 +31,7 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     private By oschadBankUsdBuy = By.xpath("//strong[@class='buy-USD']");
     private By oschadBankUsdSell = By.xpath("//strong[@class='sell-USD']");
 
-    private By nbuUsdSell1 = By.xpath("//div[@class='content']/table[4]/tbody/tr[2]/td[5]");
-    private By nbuUsdSell2 = By.xpath("//div[@class='content']/table[4]/tbody/tr[2]/td[5]");
+    private By nbuUsdSell = By.xpath("//td[contains(text(),'Долар США')]//following-sibling::td");
 
     @Test(priority = 1)
     public void privatBank() {
@@ -92,16 +91,10 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     @Test(priority = 5)
     public void nby() {
         driver.get("https://www.bank.gov.ua/control/uk/curmetal/detail/currency?period=daily");
-        if (driver.findElement(nbuUsdSell1).isDisplayed()) {
-            String parseNbuBankUsdBuy = driver.findElement(nbuUsdSell1).getText();
-            unbuUsdBuy = Double.parseDouble(parseNbuBankUsdBuy); // USD for buying in NBU bank
-            System.out.println("unbuUsdBuy is " + unbuUsdBuy);
+        String parseNbuBankUsdBuy = driver.findElement(nbuUsdSell).getText();
+        unbuUsdBuy = Double.parseDouble(parseNbuBankUsdBuy); // USD for buying in NBU bank
+        System.out.println("unbuUsdBuy is " + unbuUsdBuy);
 
-        } else if (driver.findElement(nbuUsdSell2).isDisplayed()) {
-            String parseNbuBankUsdBuy = driver.findElement(nbuUsdSell2).getText();
-            unbuUsdBuy = Double.parseDouble(parseNbuBankUsdBuy); // USD for buying in NBU bank
-            System.out.println("unbuUsdBuy is " + unbuUsdBuy);
-        }
     }
 
 }
