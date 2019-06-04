@@ -15,6 +15,11 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     public double universalUsdBuy;
     public double universalUsdSell;
 
+    public double oschadUsdBuy;
+    public double oschadUsdSell;
+
+    public double unbuUsdBuy;
+
     private By privatUsd = By.xpath("//*[@class='section']/div[2]");
 
     private By ukrSibBankUsdBuy = By.xpath("//*[@class='currency__table']/tbody/tr[1]/td[2]");
@@ -23,6 +28,10 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     private By universalBankUsdBuy = By.xpath("//*[@class='rate table table-bordered light fl-left m-t-2']/tbody/tr[2]/td[2]");
     private By universalBankUsdSell = By.xpath("//*[@class='rate table table-bordered light fl-left m-t-2']/tbody/tr[2]/td[3]");
 
+    private By oschadBankUsdBuy = By.xpath("//strong[@class='buy-USD']");
+    private By oschadBankUsdSell = By.xpath("//strong[@class='sell-USD']");
+
+    private By nbuUsdSell = By.xpath("//div[@class='content']/table[4]/tbody/tr[9]/td[5]");
 /*
     @Test
     public void privatBank() {
@@ -39,7 +48,6 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     }
     */
 /*
-
     @Test
     public void ukrSibBank()  {
         driver.get("https://my.ukrsibbank.com/ru/personal/operations/currency_exchange/");
@@ -53,6 +61,7 @@ public class CurrencyInBanksDouble extends BaseWrapper {
 
 */
 
+/*
     @Test
     public void universalBank() {
         driver.get("https://www.universalbank.com.ua//");
@@ -62,5 +71,28 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         String parseUniversalBankUsdSell = driver.findElement(universalBankUsdSell).getText();
         universalUsdSell = Double.parseDouble(parseUniversalBankUsdSell); // USD for buying in universal bank
     }
+*/
+
+ /*
+    @Test
+    public void oschadbank() {
+        driver.get("https://www.oschadbank.ua/ua");
+        String parseOschadBankUsdBuy = driver.findElement(oschadBankUsdBuy).getAttribute("data-buy");
+        oschadUsdBuy = Double.parseDouble(parseOschadBankUsdBuy); // USD for buying in oschad bank
+
+        String parseOschadBankUsdSell = driver.findElement(oschadBankUsdSell).getAttribute("data-sell");
+        oschadUsdSell = Double.parseDouble(parseOschadBankUsdSell); // USD for buying in oschad bank
+
+    }
+    */
+/*
+    @Test
+    public void nby() {
+        driver.get("https://www.bank.gov.ua/control/uk/curmetal/detail/currency?period=daily");
+        String parseNbuBankUsdBuy = driver.findElement(nbuUsdSell).getText();
+        unbuUsdBuy = Double.parseDouble(parseNbuBankUsdBuy); // USD for buying in NBU bank
+    }
+    */
+
 
 }
