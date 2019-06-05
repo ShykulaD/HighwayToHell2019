@@ -103,13 +103,14 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     }
 
     //     * 4. Вывести в консоль банк с самым низким курсом покупки доллара
-/*
 
-  if(privatUsdBuy < ukrSibUsdBuy) {
-        System.out.println("20 is greater than 18");
+    @Test
+    public void minCurs() {
+        if (privatUsdBuy < ukrSibUsdBuy) {
+            System.out.println("20 is greater than 18");
+        }
+
     }
-*/
-
 
 
 }
