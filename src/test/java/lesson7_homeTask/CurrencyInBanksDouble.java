@@ -35,6 +35,10 @@ public class CurrencyInBanksDouble extends BaseWrapper {
 
     private double nbuUsdBuy;
 
+    public double firstBank;
+    public double secondBank;
+    public double finalMinBank;
+
     private By privatUsd = By.xpath("//*[@class='section']/div[2]");
 
     private By ukrSibBankUsdBuy = By.xpath("//*[@class='currency__table']/tbody/tr[1]/td[2]");
@@ -104,13 +108,36 @@ public class CurrencyInBanksDouble extends BaseWrapper {
 
     //     * 4. Вывести в консоль банк с самым низким курсом покупки доллара
 
-    @Test
-    public void minCurs() {
-        if (privatUsdBuy < ukrSibUsdBuy) {
-            System.out.println("20 is greater than 18");
+    @Test(priority = 6)
+    public void minCurs1() {
+        if (privatUsdBuy < ukrSibUsdBuy && privatUsdBuy < universalUsdBuy) {
+            firstBank = privatUsdBuy;
+        } else if (ukrSibUsdBuy < privatUsdBuy && ukrSibUsdBuy < universalUsdBuy) {
+            firstBank = ukrSibUsdBuy;
+        } else if (universalUsdBuy < privatUsdBuy && universalUsdBuy < universalUsdBuy) {
+            firstBank = universalUsdBuy;
         }
 
     }
 
+    @Test(priority = 7)
+    public void minCurs2() {
+        if (oschadUsdBuy < nbuUsdBuy) {
+            secondBank = oschadUsdBuy;
+        } else if (nbuUsdBuy < oschadUsdBuy) {
+            secondBank = nbuUsdBuy;
+        }
+    }
+
+    @Test(priority = 8)
+    public void minCurs3() {
+        if (firstBank < secondBank) {
+            firstBank = firstBank;
+        } else if (nbuUsdBuy < oschadUsdBuy) {
+            firstBank = secondBank;
+        }
+        System.out.println("The minimum curs is " + finalMinBank);
+
+    }
 
 }

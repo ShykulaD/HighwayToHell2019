@@ -10,7 +10,6 @@ public class SeleniumCheck {
         driver.get("https://google.com");
         Thread.sleep(5000);
         driver.quit();
-
     }
 
 }

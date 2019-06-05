@@ -24,4 +24,3 @@ public class TimeOfTheYear {
             System.out.println("I don't know such month");
     }
 }
-
