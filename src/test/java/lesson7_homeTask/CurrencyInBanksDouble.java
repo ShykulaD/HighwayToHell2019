@@ -60,6 +60,7 @@ public class CurrencyInBanksDouble extends BaseWrapper {
 
         String privatStringToBuy = privatUsdSellAndBuy.substring(9, 15);
         privatUsdBuy = Double.parseDouble(privatStringToBuy); // USD for buying in privatBank
+        System.out.println(privatUsdBuy);
 
         String privatStringToSell = privatUsdSellAndBuy.substring(0, 7);
         privatUsdSell = Double.parseDouble(privatStringToSell); // USD for selling in privatBank
@@ -71,6 +72,8 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         driver.get("https://my.ukrsibbank.com/ru/personal/operations/currency_exchange/");
         String parseUkrSibBankUsdBuy = driver.findElement(ukrSibBankUsdBuy).getText();
         ukrSibUsdBuy = Double.parseDouble(parseUkrSibBankUsdBuy); // USD for buying in ukrSibBank bank
+        System.out.println(ukrSibUsdBuy);
+
 
         String parseukrSibBankUsdSell = driver.findElement(ukrSibBankUsdSell).getText();
         ukrSibUsdSell = Double.parseDouble(parseukrSibBankUsdSell); // USD for selling in ukrSibBank bank
@@ -82,6 +85,8 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         driver.get("https://www.universalbank.com.ua//");
         String parseUniversalBankUsdBuy = driver.findElement(universalBankUsdBuy).getText();
         universalUsdBuy = Double.parseDouble(parseUniversalBankUsdBuy); // USD for buying in universal bank
+        System.out.println(universalUsdBuy);
+
 
         String parseUniversalBankUsdSell = driver.findElement(universalBankUsdSell).getText();
         universalUsdSell = Double.parseDouble(parseUniversalBankUsdSell); // USD for buying in universal bank
@@ -93,6 +98,8 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         driver.get("https://www.oschadbank.ua/ua");
         String parseOschadBankUsdBuy = driver.findElement(oschadBankUsdBuy).getAttribute("data-buy");
         oschadUsdBuy = Double.parseDouble(parseOschadBankUsdBuy); // USD for buying in oschad bank
+        System.out.println(oschadUsdBuy);
+
 
         String parseOschadBankUsdSell = driver.findElement(oschadBankUsdSell).getAttribute("data-sell");
         oschadUsdSell = Double.parseDouble(parseOschadBankUsdSell); // USD for buying in oschad bank
@@ -104,12 +111,14 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         driver.get("https://www.bank.gov.ua/control/uk/curmetal/detail/currency?period=daily");
         String parseNbuBankUsdBuy = driver.findElement(nbuUsdSell).getText();
         nbuUsdBuy = Double.parseDouble(parseNbuBankUsdBuy); // USD for buying in NBU bank
+        System.out.println(nbuUsdBuy);
+
     }
 
     //     * 4. Вывести в консоль банк с самым низким курсом покупки доллара
 
     @Test(priority = 6)
-    public void minCurs1() {
+    public void minCurs() {
         if (privatUsdBuy < ukrSibUsdBuy && privatUsdBuy < universalUsdBuy) {
             firstBank = privatUsdBuy;
         } else if (ukrSibUsdBuy < privatUsdBuy && ukrSibUsdBuy < universalUsdBuy) {
@@ -118,23 +127,17 @@ public class CurrencyInBanksDouble extends BaseWrapper {
             firstBank = universalUsdBuy;
         }
 
-    }
 
-    @Test(priority = 7)
-    public void minCurs2() {
         if (oschadUsdBuy < nbuUsdBuy) {
             secondBank = oschadUsdBuy;
         } else if (nbuUsdBuy < oschadUsdBuy) {
             secondBank = nbuUsdBuy;
         }
-    }
 
-    @Test(priority = 8)
-    public void minCurs3() {
         if (firstBank < secondBank) {
-            firstBank = firstBank;
-        } else if (nbuUsdBuy < oschadUsdBuy) {
-            firstBank = secondBank;
+            finalMinBank = firstBank;
+        } else if (secondBank < firstBank) {
+            finalMinBank = secondBank;
         }
         System.out.println("The minimum curs is " + finalMinBank);
 
