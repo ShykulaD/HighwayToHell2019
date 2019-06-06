@@ -127,7 +127,6 @@ public class CurrencyInBanksDouble extends BaseWrapper {
             firstBank = universalUsdBuy;
         }
 
-
         if (oschadUsdBuy < nbuUsdBuy) {
             secondBank = oschadUsdBuy;
         } else if (nbuUsdBuy < oschadUsdBuy) {
