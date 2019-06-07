@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapper;
 
+import java.util.Arrays;
+
 public class CurrencyInBanksDouble extends BaseWrapper {
 
     /*
@@ -23,33 +25,21 @@ public class CurrencyInBanksDouble extends BaseWrapper {
 
     private double privatUsdBuy;
     private double privatUsdSell;
-
     private double ukrSibUsdBuy;
     private double ukrSibUsdSell;
-
     private double universalUsdBuy;
     private double universalUsdSell;
-
     private double oschadUsdBuy;
     private double oschadUsdSell;
-
     private double nbuUsdBuy;
 
-    public double firstBank;
-    public double secondBank;
-    public double finalMinBank;
-
     private By privatUsd = By.xpath("//*[@class='section']/div[2]");
-
     private By ukrSibBankUsdBuy = By.xpath("//*[@class='currency__table']/tbody/tr[1]/td[2]");
     private By ukrSibBankUsdSell = By.xpath("//*[@class='currency__table']/tbody/tr[1]/td[3]");
-
     private By universalBankUsdBuy = By.xpath("//*[@class='rate table table-bordered light fl-left m-t-2']/tbody/tr[2]/td[2]");
     private By universalBankUsdSell = By.xpath("//*[@class='rate table table-bordered light fl-left m-t-2']/tbody/tr[2]/td[3]");
-
     private By oschadBankUsdBuy = By.xpath("//strong[@class='buy-USD']");
     private By oschadBankUsdSell = By.xpath("//strong[@class='sell-USD']");
-
     private By nbuUsdSell = By.xpath("//td[contains(text(),'Долар США')]//following-sibling::td");
 
     //Go to privatBank & get currency
@@ -60,7 +50,6 @@ public class CurrencyInBanksDouble extends BaseWrapper {
 
         String privatStringToBuy = privatUsdSellAndBuy.substring(9, 15);
         privatUsdBuy = Double.parseDouble(privatStringToBuy); // USD for buying in privatBank
-        System.out.println(privatUsdBuy);
 
         String privatStringToSell = privatUsdSellAndBuy.substring(0, 7);
         privatUsdSell = Double.parseDouble(privatStringToSell); // USD for selling in privatBank
@@ -72,8 +61,6 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         driver.get("https://my.ukrsibbank.com/ru/personal/operations/currency_exchange/");
         String parseUkrSibBankUsdBuy = driver.findElement(ukrSibBankUsdBuy).getText();
         ukrSibUsdBuy = Double.parseDouble(parseUkrSibBankUsdBuy); // USD for buying in ukrSibBank bank
-        System.out.println(ukrSibUsdBuy);
-
 
         String parseukrSibBankUsdSell = driver.findElement(ukrSibBankUsdSell).getText();
         ukrSibUsdSell = Double.parseDouble(parseukrSibBankUsdSell); // USD for selling in ukrSibBank bank
@@ -85,8 +72,6 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         driver.get("https://www.universalbank.com.ua//");
         String parseUniversalBankUsdBuy = driver.findElement(universalBankUsdBuy).getText();
         universalUsdBuy = Double.parseDouble(parseUniversalBankUsdBuy); // USD for buying in universal bank
-        System.out.println(universalUsdBuy);
-
 
         String parseUniversalBankUsdSell = driver.findElement(universalBankUsdSell).getText();
         universalUsdSell = Double.parseDouble(parseUniversalBankUsdSell); // USD for buying in universal bank
@@ -98,8 +83,6 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         driver.get("https://www.oschadbank.ua/ua");
         String parseOschadBankUsdBuy = driver.findElement(oschadBankUsdBuy).getAttribute("data-buy");
         oschadUsdBuy = Double.parseDouble(parseOschadBankUsdBuy); // USD for buying in oschad bank
-        System.out.println(oschadUsdBuy);
-
 
         String parseOschadBankUsdSell = driver.findElement(oschadBankUsdSell).getAttribute("data-sell");
         oschadUsdSell = Double.parseDouble(parseOschadBankUsdSell); // USD for buying in oschad bank
@@ -111,35 +94,39 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         driver.get("https://www.bank.gov.ua/control/uk/curmetal/detail/currency?period=daily");
         String parseNbuBankUsdBuy = driver.findElement(nbuUsdSell).getText();
         nbuUsdBuy = Double.parseDouble(parseNbuBankUsdBuy); // USD for buying in NBU bank
-        System.out.println(nbuUsdBuy);
-
     }
-
-    //     * 4. Вывести в консоль банк с самым низким курсом покупки доллара
 
     @Test(priority = 6)
     public void minCurs() {
-        if (privatUsdBuy < ukrSibUsdBuy && privatUsdBuy < universalUsdBuy) {
-            firstBank = privatUsdBuy;
-        } else if (ukrSibUsdBuy < privatUsdBuy && ukrSibUsdBuy < universalUsdBuy) {
-            firstBank = ukrSibUsdBuy;
-        } else if (universalUsdBuy < privatUsdBuy && universalUsdBuy < universalUsdBuy) {
-            firstBank = universalUsdBuy;
-        }
 
-        if (oschadUsdBuy < nbuUsdBuy) {
-            secondBank = oschadUsdBuy;
-        } else if (nbuUsdBuy < oschadUsdBuy) {
-            secondBank = nbuUsdBuy;
-        }
+        double arrForBuy[] = {privatUsdBuy, ukrSibUsdBuy, universalUsdBuy, oschadUsdBuy, nbuUsdBuy};
+        double arrForSell[] = {privatUsdSell, ukrSibUsdSell, universalUsdSell, oschadUsdSell};
+        Arrays.sort(arrForBuy);
+        Arrays.sort(arrForSell);
 
-        if (firstBank < secondBank) {
-            finalMinBank = firstBank;
-        } else if (secondBank < firstBank) {
-            finalMinBank = secondBank;
-        }
-        System.out.println("The minimum curs is " + finalMinBank);
+        double min = arrForBuy[0];
+        double max = arrForSell[arrForSell.length - 1];
 
+        if (min == privatUsdBuy) {
+            System.out.println("The minimum exchange rate is in Privat Bank " + privatUsdBuy);
+        } else if (min == ukrSibUsdBuy) {
+            System.out.println("The minimum exchange rate is in UkrsibBank " + ukrSibUsdBuy);
+        } else if (min == universalUsdBuy) {
+            System.out.println("The minimum exchange rate is in UniversaBank" + universalUsdBuy);
+        } else if (min == oschadUsdBuy) {
+            System.out.println("The minimum exchange rate is in OschadBank " + oschadUsdBuy);
+        } else if (min == nbuUsdBuy) {
+            System.out.println("The minimum exchange rate is in NBU " + nbuUsdBuy);
+        }
+        if (max == privatUsdSell) {
+            System.out.println("The maximum exchange rate is in Privat Bank" + privatUsdSell);
+        } else if (max == ukrSibUsdSell) {
+            System.out.println("The maximum exchange rate is in UkrsibBank " + ukrSibUsdSell);
+        } else if (max == universalUsdSell) {
+            System.out.println("The maximum exchange rate is in UniversaBank " + universalUsdSell);
+        } else if (max == oschadUsdSell) {
+            System.out.println("The maximum exchange rate is in OschadBank " + oschadUsdSell);
+        }
     }
 
 }
