@@ -9,7 +9,9 @@ public class CurrencyInBanksPageSource extends BaseWrapper {
     //Go to privatBank & get currency
     @Test(priority = 1)
     public void privatBank() {
-      //  driver.getPageSource("https://www.privat24.ua");
+        driver.get("https://www.privat24.ua");
+        String pageSource = driver.getPageSource();
+        System.out.println(pageSource);
     }
 
 }
