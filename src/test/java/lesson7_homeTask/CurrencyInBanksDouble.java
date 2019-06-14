@@ -108,24 +108,24 @@ public class CurrencyInBanksDouble extends BaseWrapper {
         double max = arrForSell[arrForSell.length - 1];
 
         if (min == privatUsdBuy) {
-            System.out.println("The minimum exchange rate is in Privat Bank " + privatUsdBuy);
+            System.out.println("The most profitable dollar purchase rate is in Privat Bank " + privatUsdBuy);
         } else if (min == ukrSibUsdBuy) {
-            System.out.println("The minimum exchange rate is in UkrsibBank " + ukrSibUsdBuy);
+            System.out.println("The most profitable dollar purchase rate is in UkrsibBank " + ukrSibUsdBuy);
         } else if (min == universalUsdBuy) {
-            System.out.println("The minimum exchange rate is in UniversaBank" + universalUsdBuy);
+            System.out.println("The most profitable dollar purchase rate is in UniversaBank" + universalUsdBuy);
         } else if (min == oschadUsdBuy) {
-            System.out.println("The minimum exchange rate is in OschadBank " + oschadUsdBuy);
+            System.out.println("The most profitable dollar purchase rate is in OschadBank " + oschadUsdBuy);
         } else if (min == nbuUsdBuy) {
-            System.out.println("The minimum exchange rate is in NBU " + nbuUsdBuy);
+            System.out.println("The most profitable dollar purchase rate is in NBU " + nbuUsdBuy);
         }
         if (max == privatUsdSell) {
-            System.out.println("The maximum exchange rate is in Privat Bank" + privatUsdSell);
+            System.out.println("The most profitable dollar selling rate is in Privat Bank" + privatUsdSell);
         } else if (max == ukrSibUsdSell) {
-            System.out.println("The maximum exchange rate is in UkrsibBank " + ukrSibUsdSell);
+            System.out.println("The most profitable dollar selling rate is in UkrsibBank " + ukrSibUsdSell);
         } else if (max == universalUsdSell) {
-            System.out.println("The maximum exchange rate is in UniversaBank " + universalUsdSell);
+            System.out.println("The most profitable dollar selling rate is in UniversaBank " + universalUsdSell);
         } else if (max == oschadUsdSell) {
-            System.out.println("The maximum exchange rate is in OschadBank " + oschadUsdSell);
+            System.out.println("The most profitable dollar selling rate is in OschadBank " + oschadUsdSell);
         }
     }
 
