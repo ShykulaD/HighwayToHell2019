@@ -11,7 +11,7 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     /*
      * Написать программу которая будет:
      * 1. Заходить на сайты банков
-     * 2. Записывать 2 переменные типа "double" - курс покупки\продажи валют (гривна\доллар)
+     * 2. Записывать 2 переменные типа "double" - курс покупки\пр одажи валют (гривна\доллар)
      * 3. Посчитать средний курс валют, отдельно, покупки и продажи между всеми банками (вывести в консоль)
      * 4. Вывести в консоль банк с самым низким курсом покупки доллара
      * 5. Вывести в консоль банк с самым высоким курсом продажи
@@ -42,10 +42,14 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     private By oschadBankUsdSell = By.xpath("//strong[@class='sell-USD']");
     private By nbuUsdSell = By.xpath("//td[contains(text(),'Долар США')]//following-sibling::td");
 
+    String[] bankList = new String[]{"https://www.privat24.ua", "https://my.ukrsibbank.com/ru/personal/operations/currency_exchange/",
+            "https://www.universalbank.com.ua//", "https://www.oschadbank.ua/ua",
+            "https://www.bank.gov.ua/control/uk/curmetal/detail/currency?period=daily"};
+
     //Go to privatBank & get currency
     @Test(priority = 1)
     public void privatBank() {
-        driver.get("https://www.privat24.ua");
+        driver.get(bankList[0]);
         String privatUsdSellAndBuy = driver.findElement(privatUsd).getText();
 
         String privatStringToBuy = privatUsdSellAndBuy.substring(9, 15);
@@ -58,7 +62,7 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     //Go to ukrSibBank & get currency
     @Test(priority = 2)
     public void ukrSibBank() {
-        driver.get("https://my.ukrsibbank.com/ru/personal/operations/currency_exchange/");
+        driver.get(bankList[1]);
         String parseUkrSibBankUsdBuy = driver.findElement(ukrSibBankUsdBuy).getText();
         ukrSibUsdBuy = Double.parseDouble(parseUkrSibBankUsdBuy); // USD for buying in ukrSibBank bank
 
@@ -69,7 +73,7 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     //Go to universalBank & get currency
     @Test(priority = 3)
     public void universalBank() {
-        driver.get("https://www.universalbank.com.ua//");
+        driver.get(bankList[2]);
         String parseUniversalBankUsdBuy = driver.findElement(universalBankUsdBuy).getText();
         universalUsdBuy = Double.parseDouble(parseUniversalBankUsdBuy); // USD for buying in universal bank
 
@@ -80,7 +84,7 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     //Go to oschadbank & get currency
     @Test(priority = 4)
     public void oschadbank() {
-        driver.get("https://www.oschadbank.ua/ua");
+        driver.get(bankList[3]);
         String parseOschadBankUsdBuy = driver.findElement(oschadBankUsdBuy).getAttribute("data-buy");
         oschadUsdBuy = Double.parseDouble(parseOschadBankUsdBuy); // USD for buying in oschad bank
 
@@ -91,7 +95,7 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     //Go to nbuBank & get currency
     @Test(priority = 5)
     public void nbu() {
-        driver.get("https://www.bank.gov.ua/control/uk/curmetal/detail/currency?period=daily");
+        driver.get(bankList[4]);
         String parseNbuBankUsdBuy = driver.findElement(nbuUsdSell).getText();
         nbuUsdBuy = Double.parseDouble(parseNbuBankUsdBuy); // USD for buying in NBU bank
     }
