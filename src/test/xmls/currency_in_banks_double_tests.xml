@@ -1,17 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<suite name="Suite" parallel="false" verbose="10">
+<!--<?xml version="1.0" encoding="UTF-8" standalone="no"?>-->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-    <test name="privatBank test">
+<suite name="Suite" parallel="false" verbose="1">
+
+    <test name="CurrencyInBanksDouble test">
         <classes>
             <class name="lesson7_homeTask.CurrencyInBanksDouble">
-                <methods>
+                <!--<methods>
                     <include name="privatBank"/>
                     <include name="ukrSibBank"/>
                     <include name="universalBank"/>
                     <include name="oschadbank"/>
                     <include name="nbu"/>
                     <include name="minCurs"/>
-                </methods>
+                </methods>-->
             </class>
         </classes>
     </test>

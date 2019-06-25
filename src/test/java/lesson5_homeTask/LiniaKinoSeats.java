@@ -39,7 +39,6 @@ public class LiniaKinoSeats extends BaseWrapper {
         }
 
         driver.findElement(By.xpath("//*[@class='showtime-time']//li[2]/a")).click();
-        Thread.sleep(4000);
         WebElement iframeElem = driver.findElement(By.cssSelector("iframe"));
         driver.switchTo().frame(iframeElem); // Switch to iframe
 
