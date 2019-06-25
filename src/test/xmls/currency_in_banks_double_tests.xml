@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<suite name="Suite" parallel="false" verbose="10">
+
+    <test name="privatBank test">
+        <classes>
+            <class name="lesson7_homeTask.CurrencyInBanksDouble">
+                <methods>
+                    <include name="privatBank"/>
+                    <include name="ukrSibBank"/>
+                    <include name="universalBank"/>
+                    <include name="oschadbank"/>
+                    <include name="nbu"/>
+                    <include name="minCurs"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

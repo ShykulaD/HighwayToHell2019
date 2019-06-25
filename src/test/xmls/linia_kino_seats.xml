@@ -2,7 +2,7 @@
 
 <suite name="Suite" parallel="false">
 
-    <test name="Linia Kino">
+    <test name="LiniaKino">
         <classes>
             <class name="lesson5_homeTask.LiniaKinoSeats">
                 <methods>

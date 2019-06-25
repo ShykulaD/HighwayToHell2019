@@ -24,7 +24,7 @@ import wrappers.BaseWrapper;
 public class KismiaAutoTest extends BaseWrapper {
 
     private String userName = "Andrii";
-    private String password = "Te12345st";
+    private String password = "qweasd1234567890";
     private String tempEmail;
 
     private By email = By.xpath("//*[@id='eposta_adres']");

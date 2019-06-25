@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapper;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class CurrencyInBanksDouble extends BaseWrapper {
@@ -50,13 +51,18 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     @Test(priority = 1)
     public void privatBank() {
         driver.get(bankList[0]);
+        System.out.println("website");
         String privatUsdSellAndBuy = driver.findElement(privatUsd).getText();
+        System.out.println("found element");
 
         String privatStringToBuy = privatUsdSellAndBuy.substring(9, 15);
         privatUsdBuy = Double.parseDouble(privatStringToBuy); // USD for buying in privatBank
+        System.out.println("privatUsdBuy write");
 
         String privatStringToSell = privatUsdSellAndBuy.substring(0, 7);
         privatUsdSell = Double.parseDouble(privatStringToSell); // USD for selling in privatBank
+        System.out.println("privatUsdSell write");
+
     }
 
     //Go to ukrSibBank & get currency
