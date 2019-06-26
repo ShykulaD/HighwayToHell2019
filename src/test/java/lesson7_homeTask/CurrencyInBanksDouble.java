@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapper;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class CurrencyInBanksDouble extends BaseWrapper {
