@@ -9,6 +9,9 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapper;
 
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+
 public class KissmiaAutoTest extends BaseWrapper {
 
     /*
@@ -48,6 +51,8 @@ public class KissmiaAutoTest extends BaseWrapper {
     private By cookies = By.xpath("//button[@class='cookies-popup__btn']");
 
     private By tempEmailPars = By.xpath("//li[@class='mail ']/a");
+    private By openRegLink = By.xpath("//a[contains(text(), 'Вход на сайт')]");
+
 
     @BeforeTest
     public String getTempEmail() {
@@ -104,14 +109,27 @@ public class KissmiaAutoTest extends BaseWrapper {
         driver.findElement(buttonForward).click();
         driver.findElement(saveForLater).click(); // Photo upload later
 
-        Thread.sleep(20000);
+        Thread.sleep(15000);
 
     }
 
     @Test(priority = 4)
     public void changingPersonalInfo2() {
+
+        JavascriptExecutor jse2 = (JavascriptExecutor) driver;
+        jse2.executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.get("https://tempail.com/en/");
+
+        System.out.println("On page1");
+
+        for (String arrElement : tabs) {
+            System.out.println("Item: " + arrElement);
+        }
+
         driver.findElement(tempEmailPars).click(); // finding day dropDown
-        driver.findElement(selectBdAyDay).click(); // selecting B-day from dropDown
+        driver.findElement(openRegLink).click(); // selecting B-day from dropDown
 
     }
 
