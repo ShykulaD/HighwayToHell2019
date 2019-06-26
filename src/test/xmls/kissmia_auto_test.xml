@@ -3,9 +3,9 @@
 
 <suite name="Suite" parallel="false" verbose="1">
 
-    <test name="LiniaKino test">
+    <test name="Kissmia test">
         <classes>
-            <class name="lesson5_homeTask.LiniaKinoSeats">
+            <class name="lesson7_homeTask.KissmiaAutoTest">
             </class>
         </classes>
     </test>

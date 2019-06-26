@@ -1,6 +1,7 @@
 package lesson7_homeTask;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -8,20 +9,15 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapper;
 
+public class KissmiaAutoTest extends BaseWrapper {
 
-
-
-/*
-Для регистрации пользователей используйте временные почтовые ящики. Например - https://tempail.com/
-
-Написать тесты для сайта с помощью TestNG + Selenium (для сайта https://kismia.com/) :
-
-1. Тест на логин
-2. Тест на отправку сообщения
-3. Тест на изменение в настройках пола и возраста
-*/
-
-public class KismiaAutoTest extends BaseWrapper {
+    /*
+    Для регистрации пользователей используйте временные почтовые ящики. Например - https://tempail.com/
+    Написать тесты для сайта с помощью TestNG + Selenium (для сайта https://kismia.com/):
+    1. Тест на логин
+    2. Тест на отправку сообщения
+    3. Тест на изменение в настройках пола и возраста
+    */
 
     private String userName = "Andrii";
     private String password = "qweasd1234567890";
@@ -46,10 +42,12 @@ public class KismiaAutoTest extends BaseWrapper {
     private By openYearDayDropDown = By.xpath("//*[@id='bday_year']");
     private By selectBdAyYear = By.xpath("//*[@id='bday_year']/option[10]");
 
-    private By buttonForward = By.xpath("//*[@class='btn-holder']/button");
+    private By buttonForward = By.xpath("//div[@class='btn-holder']/button");
     private By saveForLater = By.xpath("//*[@class='js-skip-upload-photo-step']");
 
+    private By cookies = By.xpath("//button[@class='cookies-popup__btn']");
 
+    private By tempEmailPars = By.xpath("//li[@class='mail ']/a");
 
     @BeforeTest
     public String getTempEmail() {
@@ -58,27 +56,39 @@ public class KismiaAutoTest extends BaseWrapper {
         return tempEmail;
     }
 
-    @Test
+    @Test(priority = 1)
     public void logIn() throws InterruptedException {
 
         driver.get("https://kismia.com/");
         driver.findElement(newReg).click(); // new Reg
-        Thread.sleep(3000);
-     //   WebDriverWait explicitWait = new WebDriverWait(driver, 5);
-     //   explicitWait.until(ExpectedConditions.presenceOfElementLocated(selectMaleGender));
 
+        if (driver.findElement(cookies).isDisplayed()) {
+            driver.findElement(cookies).click();
+        }
+
+        Thread.sleep(3000);
+        //   WebDriverWait explicitWait = new WebDriverWait(driver, 5);
+        //   explicitWait.until(ExpectedConditions.presenceOfElementLocated(selectMaleGender));
         driver.findElement(selectMaleGender).click();
         driver.findElement(userNameField).sendKeys(userName);
         driver.findElement(submitReg).click();
-        Thread.sleep(4000);
+
+    }
+
+    @Test(priority = 2)
+    public void authentication() {
+        //   Thread.sleep(4000);
         driver.findElement(loginEmail).click();
         driver.findElement(loginEmail).sendKeys(tempEmail);
 
         driver.findElement(passWordSearch).click();
         driver.findElement(passWordSearch).sendKeys(password);
         driver.findElement(submitLogin).click();
-        Thread.sleep(4000);
 
+    }
+
+    @Test(priority = 3)
+    public void changingPersonalInfo() throws InterruptedException {
         driver.findElement(openBirthDayDropDown).click(); // finding day dropDown
         driver.findElement(selectBdAyDay).click(); // selecting B-day from dropDown
 
@@ -88,10 +98,20 @@ public class KismiaAutoTest extends BaseWrapper {
         driver.findElement(openYearDayDropDown).click(); // finding year dropDown
         driver.findElement(selectBdAyYear).click(); // selecting B-year from dropDown
 
-        Thread.sleep(5000);
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("scroll(0, 1000);"); // Scroll to the buttom of the page
 
-        driver.findElement(buttonForward).click(); //
+        driver.findElement(buttonForward).click();
         driver.findElement(saveForLater).click(); // Photo upload later
+
+        Thread.sleep(20000);
+
+    }
+
+    @Test(priority = 4)
+    public void changingPersonalInfo2() {
+        driver.findElement(tempEmailPars).click(); // finding day dropDown
+        driver.findElement(selectBdAyDay).click(); // selecting B-day from dropDown
 
     }
 

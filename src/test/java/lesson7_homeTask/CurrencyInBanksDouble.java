@@ -105,13 +105,13 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     @Test(priority = 6)
     public void minCurs() {
 
-        double arrForBuy[] = {privatUsdBuy, ukrSibUsdBuy, universalUsdBuy, oschadUsdBuy, nbuUsdBuy};
-        double arrForSell[] = {privatUsdSell, ukrSibUsdSell, universalUsdSell, oschadUsdSell};
-        Arrays.sort(arrForBuy);
-        Arrays.sort(arrForSell);
+        double minBuyRateInBanks[] = {privatUsdBuy, ukrSibUsdBuy, universalUsdBuy, oschadUsdBuy, nbuUsdBuy};
+        double minSellRateInBanks[] = {privatUsdSell, ukrSibUsdSell, universalUsdSell, oschadUsdSell};
+        Arrays.sort(minBuyRateInBanks);
+        Arrays.sort(minSellRateInBanks);
 
-        double min = arrForBuy[0];
-        double max = arrForSell[arrForSell.length - 1];
+        double min = minBuyRateInBanks[0];
+        double max = minSellRateInBanks[minSellRateInBanks.length - 1];
 
         if (min == privatUsdBuy) {
             System.out.println("The most profitable dollar purchase rate is in Privat Bank " + privatUsdBuy);
