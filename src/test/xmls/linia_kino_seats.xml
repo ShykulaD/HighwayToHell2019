@@ -5,8 +5,7 @@
 
     <test name="LiniaKino test">
         <classes>
-            <class name="lesson5_homeTask.LiniaKinoSeats">
-            </class>
+            <class name="lesson5_homeTask.LiniaKinoSeats"> </class>
         </classes>
     </test>
 

@@ -22,8 +22,8 @@ public class BaseWrapper {
 
     }
 
-//    @AfterTest
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    @AfterTest
+    public void tearDown() {
+        driver.quit();
+    }
 }
