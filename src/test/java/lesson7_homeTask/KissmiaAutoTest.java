@@ -50,7 +50,7 @@ public class KissmiaAutoTest extends BaseWrapper {
     @BeforeTest
     public String getTempEmail() {
         driver.get("https://www.mohmal.com/en/inbox");
-        tempEmail = driver.findElement(email).getAttribute("value");
+        tempEmail = driver.findElement(email).getText();
         return tempEmail;
     }
 
