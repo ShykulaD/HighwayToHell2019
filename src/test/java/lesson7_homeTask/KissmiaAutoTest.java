@@ -25,7 +25,7 @@ public class KissmiaAutoTest extends BaseWrapper {
     private String password = "qweasd1234567890";
     private String tempEmail;
 
-    private By email = By.xpath("//*[@id='eposta_adres']");
+    private By email = By.xpath("//*[@id='email']/div");
     private By newReg = By.xpath("//*[@class='screen__greeting__button js-switchSignPage']");
     private By selectMaleGender = By.xpath("//*[@class='home-page-form__gender-radio__input js_genderField js_field']");
     private By userNameField = By.xpath("//*[@class='home-page-form__input js_nameField js_field']");
@@ -34,29 +34,22 @@ public class KissmiaAutoTest extends BaseWrapper {
     private By passWordSearch = By.xpath("//*[@class='home-page-form__input js_passwordField js_field']");
     private By submitLogin = By.xpath("//*[@class='home-page-form__submit home-page-form__submit--reg js_submit']");
 
-
+    //DropDown Id's on Personal info page
     private By openBirthDayDropDown = By.xpath("//*[@id='bday_day']");
-    private By selectBdAyDay = By.xpath("//*[@id='bday_day']/option[9]");
-
     private By openMonthDayDropDown = By.xpath("//*[@id='bday_month']");
-    private By selectBdAyMonth = By.xpath("//*[@id='bday_month']/option[3]");
-
     private By openYearDayDropDown = By.xpath("//*[@id='bday_year']");
-    private By selectBdAyYear = By.xpath("//*[@id='bday_year']/option[10]");
 
     private By buttonForward = By.xpath("//div[@class='btn-holder']/button");
     private By saveForLater = By.xpath("//*[@class='js-skip-upload-photo-step']");
 
     private By cookies = By.xpath("//button[@class='cookies-popup__btn']");
 
-    private By tempEmailPars = By.xpath("//li[@class='mail ']/a");
+    private By tempEmailPars = By.xpath("//*[@class='unseen']//i");
     private By openRegLink = By.xpath("//a[contains(text(), 'Вход на сайт')] | //div[@class='button-container']/a");
-
-    //div[@class='button-container']/a
 
     @BeforeTest
     public String getTempEmail() {
-        driver.get("https://tempail.com/en/");
+        driver.get("https://www.mohmal.com/en/inbox");
         tempEmail = driver.findElement(email).getAttribute("value");
         return tempEmail;
     }
@@ -104,15 +97,6 @@ public class KissmiaAutoTest extends BaseWrapper {
         Select birthdayYearSelect = new Select(driver.findElement(openYearDayDropDown));
         birthdayYearSelect.selectByValue("1993");
 
-       //  driver.findElement(openBirthDayDropDown).click(); // finding day dropDown
-        // driver.findElement(selectBdAyDay).click(); // selecting B-day from dropDown
-
- //       driver.findElement(openMonthDayDropDown).click(); // finding month dropDown
- //       driver.findElement(selectBdAyMonth).click(); // selecting B-month from dropDown
-
-   //     driver.findElement(openYearDayDropDown).click(); // finding year dropDown
-   //     driver.findElement(selectBdAyYear).click(); // selecting B-year from dropDown
-
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("scroll(0, 1000);"); // Scroll to the buttom of the page
 
@@ -130,7 +114,7 @@ public class KissmiaAutoTest extends BaseWrapper {
         jse2.executeScript("window.open()");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
-        driver.get("https://tempail.com/en/");
+        driver.get("https://www.mohmal.com/en/inbox");
 
         System.out.println("On page1");
 
