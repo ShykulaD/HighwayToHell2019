@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapper;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class KissmiaAutoTest extends BaseWrapper {
@@ -51,8 +50,9 @@ public class KissmiaAutoTest extends BaseWrapper {
     private By cookies = By.xpath("//button[@class='cookies-popup__btn']");
 
     private By tempEmailPars = By.xpath("//li[@class='mail ']/a");
-    private By openRegLink = By.xpath("//a[contains(text(), 'Вход на сайт')]");
+    private By openRegLink = By.xpath("//a[contains(text(), 'Вход на сайт')] | //div[@class='button-container']/a");
 
+    //div[@class='button-container']/a
 
     @BeforeTest
     public String getTempEmail() {
@@ -94,14 +94,24 @@ public class KissmiaAutoTest extends BaseWrapper {
 
     @Test(priority = 3)
     public void changingPersonalInfo() throws InterruptedException {
-        driver.findElement(openBirthDayDropDown).click(); // finding day dropDown
-        driver.findElement(selectBdAyDay).click(); // selecting B-day from dropDown
 
-        driver.findElement(openMonthDayDropDown).click(); // finding month dropDown
-        driver.findElement(selectBdAyMonth).click(); // selecting B-month from dropDown
+        Select birthdayDaySelect = new Select(driver.findElement(openBirthDayDropDown));
+        birthdayDaySelect.selectByValue("08");
 
-        driver.findElement(openYearDayDropDown).click(); // finding year dropDown
-        driver.findElement(selectBdAyYear).click(); // selecting B-year from dropDown
+        Select birthdayMonthSelect = new Select(driver.findElement(openMonthDayDropDown));
+        birthdayMonthSelect.selectByValue("02");
+
+        Select birthdayYearSelect = new Select(driver.findElement(openYearDayDropDown));
+        birthdayYearSelect.selectByValue("1993");
+
+       //  driver.findElement(openBirthDayDropDown).click(); // finding day dropDown
+        // driver.findElement(selectBdAyDay).click(); // selecting B-day from dropDown
+
+ //       driver.findElement(openMonthDayDropDown).click(); // finding month dropDown
+ //       driver.findElement(selectBdAyMonth).click(); // selecting B-month from dropDown
+
+   //     driver.findElement(openYearDayDropDown).click(); // finding year dropDown
+   //     driver.findElement(selectBdAyYear).click(); // selecting B-year from dropDown
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("scroll(0, 1000);"); // Scroll to the buttom of the page
@@ -109,12 +119,12 @@ public class KissmiaAutoTest extends BaseWrapper {
         driver.findElement(buttonForward).click();
         driver.findElement(saveForLater).click(); // Photo upload later
 
-        Thread.sleep(15000);
+        Thread.sleep(20000);
 
     }
 
     @Test(priority = 4)
-    public void changingPersonalInfo2() {
+    public void changingPersonalInfo2() throws InterruptedException {
 
         JavascriptExecutor jse2 = (JavascriptExecutor) driver;
         jse2.executeScript("window.open()");
@@ -130,6 +140,8 @@ public class KissmiaAutoTest extends BaseWrapper {
 
         driver.findElement(tempEmailPars).click(); // finding day dropDown
         driver.findElement(openRegLink).click(); // selecting B-day from dropDown
+
+        Thread.sleep(20000);
 
     }
 
