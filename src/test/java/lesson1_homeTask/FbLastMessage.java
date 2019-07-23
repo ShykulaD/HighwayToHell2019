@@ -3,6 +3,7 @@ package lesson1_homeTask;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import wrappers.BaseWrapperForFaceBook;
 
@@ -19,23 +20,21 @@ import wrappers.BaseWrapperForFaceBook;
 
 public class FbLastMessage extends BaseWrapperForFaceBook {
 
-    private String pass = "Te12345st";
-    private String email = "pj.pdffiller@gmail.com";
     private By emailInput = By.cssSelector("[name='email']");
     private By passInput = By.cssSelector("[name='pass']");
     private By loginBtn = By.xpath("//label[@class='uiButton uiButtonConfirm']/input");
     private By messageBtn = By.xpath("//div[@*='uiToggle _4962 _1z4y _330i _4kgv']");
     private By messages = By.xpath("//*[@class='_1ijj']//span//span");
 
-
+    @Parameters({"email", "password"})
     @Test
-    public void FbLastUserMessage() {
+    public void FbLastUserMessage(String email, String password) {
 
         try {
             driver.findElement(emailInput).clear();
             driver.findElement(emailInput).sendKeys(email);
             driver.findElement(passInput).clear();
-            driver.findElement(passInput).sendKeys(pass);
+            driver.findElement(passInput).sendKeys(password);
 
             //Explicit wait
             WebDriverWait waitForLogin = new WebDriverWait(driver, 5);

@@ -50,7 +50,6 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     @Test(priority = 1)
     public void privatBank() {
         driver.get(bankList[0]);
-        System.out.println("website");
         String privatUsdSellAndBuy = driver.findElement(privatUsd).getText();
 
         String privatStringToBuy = privatUsdSellAndBuy.substring(9, 15);

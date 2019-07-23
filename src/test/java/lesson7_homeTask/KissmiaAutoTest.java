@@ -20,7 +20,7 @@ public class KissmiaAutoTest extends BaseWrapper {
     2. Тест на отправку сообщения
     3. Тест на изменение в настройках пола и возраста
     */
-
+    private String tempEmailAdress = "https://www.mohmal.com/en/inbox";
     private String userName = "Andrii";
     private String password = "qweasd1234567890";
     private String tempEmail;
@@ -49,7 +49,7 @@ public class KissmiaAutoTest extends BaseWrapper {
 
     @BeforeTest
     public String getTempEmail() {
-        driver.get("https://www.mohmal.com/en/inbox");
+        driver.get(tempEmailAdress);
         tempEmail = driver.findElement(email).getText();
         return tempEmail;
     }
@@ -103,7 +103,7 @@ public class KissmiaAutoTest extends BaseWrapper {
         driver.findElement(buttonForward).click();
         driver.findElement(saveForLater).click(); // Photo upload later
 
-        Thread.sleep(20000);
+        Thread.sleep(15000);
 
     }
 
@@ -114,13 +114,7 @@ public class KissmiaAutoTest extends BaseWrapper {
         jse2.executeScript("window.open()");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
-        driver.get("https://www.mohmal.com/en/inbox");
-
-        System.out.println("On page1");
-
-        for (String arrElement : tabs) {
-            System.out.println("Item: " + arrElement);
-        }
+        driver.get(tempEmailAdress);
 
         driver.findElement(tempEmailPars).click(); // finding day dropDown
         driver.findElement(openRegLink).click(); // selecting B-day from dropDown
