@@ -42,8 +42,10 @@ public class CurrencyInBanksDouble extends BaseWrapper {
     private By oschadBankUsdSell = By.xpath("//strong[@class='sell-USD']");
     private By nbuUsdSell = By.xpath("//td[contains(text(),'Долар США')]//following-sibling::td");
 
-    String[] bankList = new String[]{"https://www.privat24.ua", "https://my.ukrsibbank.com/ru/personal/operations/currency_exchange/",
-            "https://www.universalbank.com.ua//", "https://www.oschadbank.ua/ua",
+    String[] bankList = new String[]{"https://www.privat24.ua",
+            "https://my.ukrsibbank.com/ru/personal/operations/currency_exchange/",
+            "https://www.universalbank.com.ua//",
+            "https://www.oschadbank.ua/ua",
             "https://www.bank.gov.ua/control/uk/curmetal/detail/currency?period=daily"};
 
     //Go to privatBank & get currency
