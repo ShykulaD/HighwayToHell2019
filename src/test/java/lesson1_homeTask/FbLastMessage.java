@@ -22,8 +22,8 @@ public class FbLastMessage extends BaseWrapperForFaceBook {
 
     private By emailInput = By.cssSelector("[name='email']");
     private By passInput = By.cssSelector("[name='pass']");
-    private By loginBtn = By.xpath("//label[@class='uiButton uiButtonConfirm']/input");
-    private By messageBtn = By.xpath("//div[@*='uiToggle _4962 _1z4y _330i _4kgv']");
+    private By loginBtn = By.cssSelector("#loginbutton");
+    private By messageBtn = By.cssSelector("[name = 'mercurymessages']");
     private By messages = By.xpath("//*[@class='_1ijj']//span//span");
 
     @Parameters({"email", "password"})
@@ -37,19 +37,18 @@ public class FbLastMessage extends BaseWrapperForFaceBook {
             driver.findElement(passInput).sendKeys(password);
 
             //Explicit wait
-            WebDriverWait waitForLogin = new WebDriverWait(driver, 5);
-            waitForLogin.until(ExpectedConditions.visibilityOfElementLocated(loginBtn));
+            WebDriverWait waitFor = new WebDriverWait(driver, 5);
+            waitFor.until(ExpectedConditions.elementToBeClickable(loginBtn));
 
             driver.findElement(loginBtn).click(); // click Submit button on Login
             driver.findElement(messageBtn).click();
 
             //Explicit wait
-            WebDriverWait waitForMessagePopUp = new WebDriverWait(driver, 5);
-            waitForMessagePopUp.until(ExpectedConditions.visibilityOfElementLocated(messages));
+            waitFor.until(ExpectedConditions.visibilityOfElementLocated(messages));
 
             String messagesList = driver.findElement(messages).getText();
             System.out.println(messagesList);
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
