@@ -24,7 +24,7 @@ public class FbLastMessage extends BaseWrapperForFaceBook {
     private By passInput = By.cssSelector("[name='pass']");
     private By loginBtn = By.cssSelector("#loginbutton");
     private By messageBtn = By.cssSelector("[name = 'mercurymessages']");
-    private By messages = By.xpath("//*[@class='_1ijj']//span//span");
+    private By messages = By.cssSelector("[class='_1ijj'] span span");
 
     @Parameters({"email", "password"})
     @Test
