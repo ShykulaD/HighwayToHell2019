@@ -37,15 +37,14 @@ public class FbLastMessage extends BaseWrapperForFaceBook {
             driver.findElement(passInput).sendKeys(password);
 
             //Explicit wait
-            WebDriverWait waitFor = new WebDriverWait(driver, 5);
+            WebDriverWait waitFor = new WebDriverWait(driver, 7);
             waitFor.until(ExpectedConditions.elementToBeClickable(loginBtn));
 
             driver.findElement(loginBtn).click(); // click Submit button on Login
+            waitFor.until(ExpectedConditions.elementToBeClickable(messageBtn));
             driver.findElement(messageBtn).click();
 
-            //Explicit wait
             waitFor.until(ExpectedConditions.visibilityOfElementLocated(messages));
-
             String messagesList = driver.findElement(messages).getText();
             System.out.println(messagesList);
         } catch (NullPointerException e) {
