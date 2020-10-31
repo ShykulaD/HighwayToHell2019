@@ -64,7 +64,8 @@ public class KissmiaAutoTest extends BaseWrapper {
             driver.findElement(cookies).click();
         }
 
-        Thread.sleep(3000);
+        explicitWait(selectMaleGender, 10);
+    //  Thread.sleep(3000);
         //   WebDriverWait explicitWait = new WebDriverWait(driver, 5);
         //   explicitWait.until(ExpectedConditions.presenceOfElementLocated(selectMaleGender));
         driver.findElement(selectMaleGender).click();

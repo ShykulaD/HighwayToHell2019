@@ -16,6 +16,7 @@ public class ImdbExample {
 
         @BeforeTest
         public void setUp() {
+
             driver = new ChromeDriver();
             driver.get("https://www.imdb.com/chart/top");
         }
